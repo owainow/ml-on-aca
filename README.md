@@ -56,7 +56,7 @@ az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --loca
 
 The admin enabled flag is required for some scenarios when deploying an image fro ACR to certain Azure Services including ACA.  
 
-We then need to create our Container Apps enviroment. We will be using the consumption tier for this demo. To create our container apps enviroment we can run the following commands:
+We then need to create our Container Apps environment. We will be using the consumption tier for this demo. To create our container apps environment we can run the following commands:
 
 ```
 az containerapp env create -n MyContainerappEnvironment -g $RES_GROUP \
@@ -190,7 +190,7 @@ MLOPS can often be a challenge when we think about ML deployments on cloud nativ
 
 - Azure Container Registry - Because of ACA's ease of integration with Azure container registry existing ML pipelines deploying and updating new images can use ACR tasks to regularly update container images in ACR as models are improved.
 
-We could also look to make the most of Azure Container Apps DAPR intergration out of the box to make our service to service calls simple using DAPR sidecars.
+We could also look to make the most of Azure Container Apps DAPR integration out of the box to make our service to service calls simple using DAPR sidecars.
 
 That being said ACA is not a native ML platform and requires consideration and most likely a bespoke solution to enable monitoring of the accuracy and performance of the ML Model itself.
 
