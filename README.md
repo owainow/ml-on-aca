@@ -9,7 +9,6 @@ We can do this with the following command:
 
 ```
 git clone https://github.com/owainow/ml-on-aca.git
-
 ```
 
 To start the demo we require  a requirements .txt file outlining the packages required for this walk through. The packages are:
@@ -24,7 +23,6 @@ The requirements.txt file can be found in the aca folder and installed with:
 
 ```
 pip install -r requirements.txt
-
 ```
 
 You will also need an Azure Subscription with the ability to deploy the following services:
@@ -37,6 +35,7 @@ You will also need an Azure Subscription with the ability to deploy the followin
 We will be creating our Azure resources using the CLI. Please ensure you are logged in and in the correct subscription. 
 
 We first will need to create an Azure Container Registry in preparation for creating our two images. To do this with the CLI we can do the following:
+
 ```
 ACR_NAME=<registry-name>
 RES_GROUP=ml-aca
@@ -45,7 +44,6 @@ az login
 az group create --resource-group $RES_GROUP --location eastus
 
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus --admin-enabled true
-
 ```
 
 The admin enabled flag is required for some scenarios when deploying an image fro ACR to certain Azure Services including ACA.  
@@ -53,10 +51,8 @@ The admin enabled flag is required for some scenarios when deploying an image fr
 We then need to create our Container Apps enviroment. We will be using the consumption tier for this demo. To create our container apps enviroment we can run the following commands:
 
 ```
-
 az containerapp env create -n MyContainerappEnvironment -g $RES_GROUP \
     --location eastus
-
 ```
 This will be all that is required for now until we have our built container images.
 
@@ -76,7 +72,6 @@ To use ACR tasks we will run the following commands in our terminal:
 cd aca/backend-ml
 
 az acr build --registry $ACR_NAME --image backendml:v1 --file Dockerfile .
-
 ```
 
 
@@ -90,7 +85,6 @@ To build our frontend we will use ACR tasks. We can then build and push our imag
 cd ../frontend-ml
 
 az acr build --registry $ACR_NAME --image frontendml:v1 --file Dockerfile .
-
 ```
 
 ## Deploy our Application
@@ -123,7 +117,7 @@ We can check our container is running correctly by clicking the url and viewing 
 
 2. We will then select our frontend image and select the same resource limits as before however this time we also need to add an environment variable. We can do this at the bottom of the config options. The environment variable we need to add is:
 
-REACT_APP_API_ENDPOINT <BACKEND URL>/net/image/prediction/
+REACT_APP_API_ENDPOINT BACKEND URL/net/image/prediction/
 
 3. We will enable ingress from anywhere to make our frontend public and set the target port as 3000. 
 
