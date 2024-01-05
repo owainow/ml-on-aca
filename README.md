@@ -3,6 +3,8 @@ A demo/workshop created to assist in deploying containerised ML workloads onto A
 
 This walkthrough is accompanied by a blog post which can be found here: 
 
+https://techcommunity.microsoft.com/t5/apps-on-azure-blog/deploy-tensorflow-machine-learning-models-on-azure-container/ba-p/3981763
+
 
 ## Pre-Req's
 First clone the repository into your working directory.
