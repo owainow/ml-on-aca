@@ -34,8 +34,9 @@ You will also need an Azure Subscription with the ability to deploy the followin
 
 If you would like to read more about Azure Container Apps before starting please see the links below:
 
-* https://learn.microsoft.com/en-us/azure/container-apps/overview
-* https://learn.microsoft.com/en-us/azure/container-apps/?source=recommendations
+* Container Apps Overview - https://learn.microsoft.com/en-us/azure/container-apps/overview
+* Container Apps Docs - https://learn.microsoft.com/en-us/azure/container-apps/?source=recommendations
+* Compare Container Apps vs Other Container Services - https://learn.microsoft.com/en-us/azure/container-apps/compare-options
 
 ## Create our Azure Resources
 
